@@ -1,0 +1,30 @@
+clc;
+clear all;
+close all;
+ f = 1000;
+ fc = f*8; 
+ Ta=1/f; 
+t=0:Ta/999:6*Ta ;
+s = 5;
+ m = sin(2*pi*f*t); 
+ figure(1)
+subplot(4,1,1); 
+plot(t,m), grid on;
+title ( ' Modulating Signal   ');
+xlabel ( ' time(sec) ');
+ylabel (' Amplitud(volt)   '); 
+
+yc=sin(2*pi*fc*t);
+subplot(4,1,2);
+plot(t,yc), grid on;
+title ( '  Carrier Signal   ');
+xlabel ( ' time(sec) ');
+ylabel (' Amplitude(volt)   '); 
+amplitude_modulation_index = 1; 
+xc = (1 + amplitude_modulation_index * m) .* cos(2*pi*fc*t);
+
+subplot(4,1,4); 
+plot(t, xc), grid on;
+title('Amplitude Modulated Signal');
+xlabel('Time (sec)');
+ylabel('Amplitude (volt)');
